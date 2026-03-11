@@ -2,7 +2,6 @@ package second_task.university;
 
 import second_task.university.courses.Course;
 import second_task.university.infrastructure.*;
-import second_task.university.people.Employee;
 import second_task.university.people.Lecturer;
 import second_task.university.people.SecurityGuard;
 import second_task.university.people.Student;
@@ -13,35 +12,47 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Lecturer drSmith = new Lecturer("Dr. Smith", new BigDecimal("2500.00"), LocalDate.of(2015, 5, 10), "CS", new String[]{"Java Basics"});
-        Student johnDoe = new Student("John Doe", 1);
-        Course javaCourse = new Course("Intro to Java", 2);
+        UniversityInfo.displayStats();
+
+        Lecturer drSmith = new Lecturer("Dr. Smith", new BigDecimal("3500.50"),
+                LocalDate.of(2018, 9, 1), "Computer Science");
+        SecurityGuard guardBob = new SecurityGuard("Bob", new BigDecimal("1200.00"));
+
+        Student john = new Student("John Doe", 101, false);
+        Student alice = new Student("Alice Smith", 102, true);
+
+        Course javaCourse = new Course("Intro to Java", 2, 0, null);
+
         EnrollmentService service = new EnrollmentService();
 
-        service.enrollStudent(johnDoe, javaCourse); // Fails
-        johnDoe.setTuitionPaid(true);
-        service.enrollStudent(johnDoe, javaCourse); // Succeeds
+        service.enrollStudent(john, javaCourse);
 
-        Library centralLib = new Library("Central Library", 2000);
-        System.out.println("\nBuilding: " + centralLib.getBuildingName() + " | Books: " + centralLib.getBookCount());
+        System.out.println("John pays the tuition...");
+        john.setTuitionPaid(true);
+        service.enrollStudent(john, javaCourse);
 
-        Auditory hallA = new Auditory("Science Wing", 101);
-        System.out.println("Assigned Room: #" + hallA.getRoomNumber() + " in " + hallA.getBuildingName());
+        service.enrollStudent(alice, javaCourse);
 
-        Laboratory chemLab = new Laboratory("Tesla Lab", "Microscope", new BigDecimal("5000.75"));
+        Building mainBuilding = new Building("Main Campus");
+        Library centralLib = new Library("BTU Library", 1500);
+        Auditory scienceHall = new Auditory("Science Hall", 305);
+        Laboratory roboticsLab = new Laboratory("Robotics Lab", "Sensors and Robots");
 
-        SecurityGuard guard = new SecurityGuard(new BigDecimal("1800.00"), LocalDate.now(), "Night");
+        Building[] buildings = {mainBuilding, new Building(centralLib.getName()), new Building(scienceHall.getName())};
+        Lecturer[] lecturers = {drSmith};
+        SecurityGuard[] guards = {guardBob};
 
-        Building[] allBuildings = {centralLib, hallA, chemLab};
-        Employee[] allStaff = {drSmith, guard};
+        University btu = new University("BTU - Tbilisi", buildings, lecturers, guards);
 
-        University myUni = new University("BTU", allBuildings, allStaff);
+        System.out.println("\n--- University Report ---");
+        System.out.println("University Name: " + btu.getUniName());
+        System.out.println("Head Lecturer: " + btu.getLecturers()[0].getName() + " from " + drSmith.getDepartment());
+        System.out.println("Total Buildings in System: " + btu.getBuildings().length);
 
-        System.out.println("\n--- Hierarchy Examples ---");
-        System.out.println("Laboratory Budget: " + chemLab.getBuildingName() + " has specific safety funds.");
+        System.out.println("Laboratory Equipment: " + roboticsLab.getEquipmentType());
+        System.out.println("Library Book Count: " + centralLib.getBookCount());
 
-        System.out.println("Security Guard Shift: " + guard.getShift());
-        System.out.println("Security Guard Salary: " + guard.getSalary());
-        System.out.println("Lecturer Dept: " + drSmith.getDepartment());
+        System.out.println("Course Title: " + javaCourse.getTitle() + " | Enrolled: "
+                + javaCourse.getEnrolledCount() + "/" + javaCourse.getCapacity());
     }
 }

@@ -3,24 +3,17 @@ package second_task.university.people;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Lecturer extends Employee {
+public class Lecturer {
     private String name;
+    private BigDecimal salary;
+    private LocalDate hireDate;
     private String department;
-    private String[] publications;
 
-    public Lecturer(String name, BigDecimal salary, LocalDate hired, String dept, String[] publications) {
-        super(salary, hired);
+    public Lecturer(String name, BigDecimal salary, LocalDate hireDate, String department) {
         this.name = name;
-        this.department = dept;
-        this.publications = publications;
-    }
-
-    public String[] getPublications() {
-        return publications;
-    }
-
-    public void setPublications(String[] publications) {
-        this.publications = publications;
+        this.salary = salary;
+        this.hireDate = hireDate;
+        this.department = department;
     }
 
     public String getName() {
@@ -39,4 +32,19 @@ public class Lecturer extends Employee {
         this.department = department;
     }
 
+    public LocalDate getHireDate() {
+        return hireDate;
+    }
+
+    public void setHireDate(LocalDate hireDate) {
+        this.hireDate = hireDate;
+    }
+
+    public BigDecimal getSalary() {
+        return salary;
+    }
+
+    public void setSalary(BigDecimal salary) {
+        this.salary = salary;
+    }
 }

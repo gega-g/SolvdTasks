@@ -13,6 +13,7 @@ public class UniversityInfo {
     }
 
     public static void displayStats() {
-        System.out.println("Welcome to " + universityName + ", University with " + graduates + " graduates." + " Established in " + establishedYear);
+        System.out.println("Welcome to " + universityName + ", University with " + graduates +
+                " graduates." + " Established in " + establishedYear);
     }
 }

@@ -1,27 +1,37 @@
 package second_task.university.people;
 
-public class Student extends Person {
+public class Student {
+    private String name;
     private int studentId;
     private boolean tuitionPaid = false;
 
-    public Student(String name, int id) {
-        super(name);
-        this.studentId = id;
+    public Student(String name, int studentId, boolean tuitionPaid) {
+        this.name = name;
+        this.studentId = studentId;
+        this.tuitionPaid = tuitionPaid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(int id) {
-        this.studentId = id;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
     public boolean isTuitionPaid() {
         return tuitionPaid;
     }
 
-    public void setTuitionPaid(boolean paid) {
-        this.tuitionPaid = paid;
+    public void setTuitionPaid(boolean tuitionPaid) {
+        this.tuitionPaid = tuitionPaid;
     }
 }

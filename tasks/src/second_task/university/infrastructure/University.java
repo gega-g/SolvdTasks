@@ -1,16 +1,19 @@
 package second_task.university.infrastructure;
 
-import second_task.university.people.Employee;
+import second_task.university.people.Lecturer;
+import second_task.university.people.SecurityGuard;
 
 public class University {
     private String uniName;
     private Building[] buildings;
-    private Employee[] employees;
+    private Lecturer[] lecturers;
+    private SecurityGuard[] guards;
 
-    public University(String name, Building[] buildings, Employee[] employees) {
-        this.uniName = name;
+    public University(String uniName, Building[] buildings, Lecturer[] lecturers, SecurityGuard[] guards) {
+        this.uniName = uniName;
         this.buildings = buildings;
-        this.employees = employees;
+        this.lecturers = lecturers;
+        this.guards = guards;
     }
 
     public String getUniName() {
@@ -29,12 +32,19 @@ public class University {
         this.buildings = buildings;
     }
 
-    public Employee[] getEmployees() {
-        return employees;
+    public Lecturer[] getLecturers() {
+        return lecturers;
     }
 
-    public void setEmployees(Employee[] employees) {
-        this.employees = employees;
+    public void setLecturers(Lecturer[] lecturers) {
+        this.lecturers = lecturers;
     }
 
+    public SecurityGuard[] getGuards() {
+        return guards;
+    }
+
+    public void setGuards(SecurityGuard[] guards) {
+        this.guards = guards;
+    }
 }

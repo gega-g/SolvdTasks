@@ -11,7 +11,7 @@ public class Building {
         return buildingName;
     }
 
-    public void setBuildingName(String n) {
-        this.buildingName = n;
+    public void setBuildingName(String buildingName) {
+        this.buildingName = buildingName;
     }
 }

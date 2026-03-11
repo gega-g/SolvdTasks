@@ -1,14 +1,27 @@
 package second_task.university.infrastructure;
 
-public class Auditory extends Building {
-    private final int roomNumber;
+public class Auditory {
+    private String name;
+    private int roomNumber;
 
-    public Auditory(String name, int capacity) {
-        super(name);
-        this.roomNumber = capacity;
+    public Auditory(String name, int roomNumber) {
+        this.name = name;
+        this.roomNumber = roomNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getRoomNumber() {
         return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 }

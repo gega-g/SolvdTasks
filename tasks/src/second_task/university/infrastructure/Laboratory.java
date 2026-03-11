@@ -1,15 +1,12 @@
 package second_task.university.infrastructure;
 
-import java.math.BigDecimal;
-
-public class Laboratory extends Building {
+public class Laboratory {
+    private String name;
     private String equipmentType;
-    private BigDecimal safetyBudget;
 
-    public Laboratory(String name, String equipment, BigDecimal budget) {
-        super(name);
+    public Laboratory(String name, String equipment) {
+        this.name = name;
         this.equipmentType = equipment;
-        this.safetyBudget = budget;
     }
 
     public String getEquipmentType() {
@@ -20,11 +17,11 @@ public class Laboratory extends Building {
         this.equipmentType = equipmentType;
     }
 
-    public BigDecimal getSafetyBudget() {
-        return safetyBudget;
+    public String getName() {
+        return name;
     }
 
-    public void setSafetyBudget(BigDecimal safetyBudget) {
-        this.safetyBudget = safetyBudget;
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -1,21 +1,29 @@
 package second_task.university.people;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
-public class SecurityGuard extends Employee {
-    private String shift;
+public class SecurityGuard {
+    private String name;
+    private BigDecimal salary;
 
-    public SecurityGuard(BigDecimal salary, LocalDate hired, String shift) {
-        super(salary, hired);
-        this.shift = shift;
+    public SecurityGuard(String name, BigDecimal salary) {
+        this.name = name;
+        this.salary = salary;
     }
 
-    public String getShift() {
-        return shift;
+    public String getName() {
+        return name;
     }
 
-    public void setShift(String shift) {
-        this.shift = shift;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BigDecimal getSalary() {
+        return salary;
+    }
+
+    public void setSalary(BigDecimal salary) {
+        this.salary = salary;
     }
 }

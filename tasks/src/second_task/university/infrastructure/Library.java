@@ -1,11 +1,20 @@
 package second_task.university.infrastructure;
 
-public class Library extends Building {
+public class Library {
+    private String name;
     private int bookCount;
 
     public Library(String name, int books) {
-        super(name);
+        this.name = name;
         this.bookCount = books;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getBookCount() {

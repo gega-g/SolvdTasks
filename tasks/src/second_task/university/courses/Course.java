@@ -6,29 +6,20 @@ public class Course {
     private String title;
     private int capacity;
     private int enrolledCount;
-    private Student[] students;
+    private Student[] enrolledStudents;
 
-    public Course(String title, int capacity) {
+    public Course(String title, int capacity, int enrolledCount, Student[] enrolledStudents) {
         this.title = title;
         this.capacity = capacity;
-        this.students = new Student[capacity];
-        this.enrolledCount = 0;
-    }
-
-    public int getEnrolledCount() {
-        return enrolledCount;
-    }
-
-    public void setEnrolledCount(int enrolledCount) {
         this.enrolledCount = enrolledCount;
+        this.enrolledStudents = new Student[capacity];
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public void addStudent(Student student) {
+        if (enrolledCount < capacity) {
+            this.enrolledStudents[enrolledCount] = student;
+            this.enrolledCount++;
+        }
     }
 
     public String getTitle() {
@@ -39,15 +30,27 @@ public class Course {
         this.title = title;
     }
 
-    public Student[] getStudents() {
-        return students;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void setStudents(Student[] students) {
-        this.students = students;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
-    public void addStudent(Student s) {
-        students[enrolledCount++] = s;
+    public int getEnrolledCount() {
+        return enrolledCount;
+    }
+
+    public void setEnrolledCount(int enrolledCount) {
+        this.enrolledCount = enrolledCount;
+    }
+
+    public Student[] getEnrolledStudents() {
+        return enrolledStudents;
+    }
+
+    public void setEnrolledStudents(Student[] enrolledStudents) {
+        this.enrolledStudents = enrolledStudents;
     }
 }
